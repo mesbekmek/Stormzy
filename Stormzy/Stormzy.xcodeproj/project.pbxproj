@@ -16,6 +16,7 @@
 		18F6E0C91CBD62B8006A8733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F6E0C71CBD62B8006A8733 /* LaunchScreen.storyboard */; };
 		18F6E0D41CBD62BE006A8733 /* StormzyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0D31CBD62BE006A8733 /* StormzyTests.m */; };
 		18F6E0DF1CBD62BF006A8733 /* StormzyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0DE1CBD62BF006A8733 /* StormzyUITests.m */; };
+		ABF403652825DBE9DB7F911D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B23A118B8535D4803D20ACC8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,9 @@
 		18F6E0DA1CBD62BF006A8733 /* StormzyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormzyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6E0DE1CBD62BF006A8733 /* StormzyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StormzyUITests.m; sourceTree = "<group>"; };
 		18F6E0E01CBD62BF006A8733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		672346EF9452A0FE931077AF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B23A118B8535D4803D20ACC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FED856A14C92D303E2A7614C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF403652825DBE9DB7F911D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +92,8 @@
 				18F6E0D21CBD62BE006A8733 /* StormzyTests */,
 				18F6E0DD1CBD62BF006A8733 /* StormzyUITests */,
 				18F6E0B41CBD62B6006A8733 /* Products */,
+				E418B1FD8189A10C6CF4EC62 /* Pods */,
+				7F9CEC08F55314FBEFB2B588 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +150,23 @@
 			path = StormzyUITests;
 			sourceTree = "<group>";
 		};
+		7F9CEC08F55314FBEFB2B588 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B23A118B8535D4803D20ACC8 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E418B1FD8189A10C6CF4EC62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FED856A14C92D303E2A7614C /* Pods.debug.xcconfig */,
+				672346EF9452A0FE931077AF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18F6E0E31CBD62C0006A8733 /* Build configuration list for PBXNativeTarget "Stormzy" */;
 			buildPhases = (
+				07281951C00107973AA70FF6 /* Check Pods Manifest.lock */,
 				18F6E0AF1CBD62B6006A8733 /* Sources */,
 				18F6E0B01CBD62B6006A8733 /* Frameworks */,
 				18F6E0B11CBD62B6006A8733 /* Resources */,
+				F0C1B407811A4F93F898B460 /* Embed Pods Frameworks */,
+				B8FE7D7625BDC025707E4A70 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,6 +294,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07281951C00107973AA70FF6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B8FE7D7625BDC025707E4A70 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0C1B407811A4F93F898B460 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		18F6E0AF1CBD62B6006A8733 /* Sources */ = {
@@ -415,6 +490,7 @@
 		};
 		18F6E0E41CBD62C0006A8733 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FED856A14C92D303E2A7614C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Stormzy/Info.plist;
@@ -426,6 +502,7 @@
 		};
 		18F6E0E51CBD62C0006A8733 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 672346EF9452A0FE931077AF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Stormzy/Info.plist;
@@ -502,6 +579,7 @@
 				18F6E0E51CBD62C0006A8733 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18F6E0E61CBD62C0006A8733 /* Build configuration list for PBXNativeTarget "StormzyTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +588,7 @@
 				18F6E0E81CBD62C0006A8733 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18F6E0E91CBD62C0006A8733 /* Build configuration list for PBXNativeTarget "StormzyUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +597,7 @@
 				18F6E0EB1CBD62C0006A8733 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
