@@ -18,6 +18,8 @@
 @property (nonatomic) NSMutableArray<STWeather *> *weatherData;
 @property (nonatomic, assign) CGFloat previousOffset;
 @property (nonatomic, assign) NSInteger currentPage;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 @end
 
@@ -30,6 +32,7 @@
     
     [self setupWeatherData];
     [self setupCollectionView];
+    self.backgroundImageView.image = [UIImage imageNamed:@"bg"];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -53,7 +56,7 @@
 - (void)setupCollectionView {
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor clearColor];
     
     UINib *nib = [UINib nibWithNibName:@"STCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"WeatherCellIdentifier"];
@@ -89,8 +92,15 @@
     
     STCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"WeatherCellIdentifier" forIndexPath:indexPath];
     
+    //Sets label attributes to white color
+    [cell setTextColor];
+    
     STWeather *weatherData =  self.weatherData[indexPath.row];
-    cell.temperatureLabel.text = [NSString stringWithFormat:@"%@",weatherData.temperature];
+    self.cityLabel.text = weatherData.city;
+    cell.temperatureLabel.text = weatherData.temperature;
+    
+    cell.hiLoLabel.text = [NSString stringWithFormat:@"%@/%@",weatherData.minTemp, weatherData.maxTemp];
+    
     
     return cell;
 }

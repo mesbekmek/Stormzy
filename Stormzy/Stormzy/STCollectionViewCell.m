@@ -14,4 +14,16 @@
     
 }
 
+#pragma mark - STCollectionViewCell style setup
+
+
+- (void)setTextColor {
+    
+    self.temperatureLabel.textColor = [UIColor whiteColor];
+    self.hiLoLabel.textColor = [UIColor whiteColor];
+    self.conditionsLabel.textColor = [UIColor whiteColor];
+    self.degreeSymbolLabel.textColor = [UIColor whiteColor];
+}
+
+
 @end

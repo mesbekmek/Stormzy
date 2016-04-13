@@ -12,15 +12,15 @@
 
 
 - (instancetype)initWithCity:(NSString *)city
-                 temperature:(NSNumber *)temperature
-                     minTemp:(NSNumber *)minTemp
-                     maxTemp:(NSNumber *)maxTemp
+                 temperature:(NSString *)temperature
+                     minTemp:(NSString *)minTemp
+                     maxTemp:(NSString *)maxTemp
                   dateString:(NSString *)dateString
                      iconURL:(NSString *)url
-                    humidity:(NSNumber *)humidity
-                        wind:(NSNumber *)wind
-                   feelsLike:(NSNumber *)feelsLike
-             andPreciptation:(NSNumber *)precip {
+                    humidity:(NSString *)humidity
+                        wind:(NSString *)wind
+                   feelsLike:(NSString *)feelsLike
+             andPreciptation:(NSString *)precip {
     
     if (self = [super init]) {
         self.city = city;
@@ -49,12 +49,16 @@
         
         NSDictionary *currentCondition = json[@"current"];
         NSNumber *currentTemp = currentCondition[@"temp_f"];
+        NSString *currentTempStr = [STWeather stringFromNumber:currentTemp];
         
         NSArray *weeklyForecastArray = json[@"forecast"][@"forecastday"];
         NSDictionary *todaysForecast = weeklyForecastArray[0];
         
         NSNumber *minTemp = todaysForecast[@"day"][@"mintemp_f"];
+        NSString *minTempString = [STWeather stringFromNumber:minTemp];
+        
         NSNumber *maxTemp = todaysForecast[@"day"][@"maxtemp_f"];
+        NSString *maxTempString = [STWeather stringFromNumber:maxTemp];
         
         NSString *dateString = todaysForecast[@"date"];
         NSString *dayString = [STWeather dayFromDateString:dateString];
@@ -63,12 +67,18 @@
         NSString *formattedUrl = [NSString stringWithFormat:@"https:%@",iconUrl];
         
         NSNumber *humdity = todaysForecast[@"hour"][0][@"humidity"];
+        NSString *humdityString = [STWeather stringFromNumber:humdity];
+        
         NSNumber *wind = todaysForecast[@"hour"][0][@"wind_mph"];
+        NSString *windString = [STWeather stringFromNumber:wind];
         
         NSNumber *feelsLike = todaysForecast[@"hour"][0][@"feelslike_f"];
-        NSNumber *precipitation = todaysForecast[@"hour"][0][@"precip_in"];
+        NSString *feelsLikeString = [STWeather stringFromNumber:feelsLike];
         
-        STWeather *today = [[STWeather alloc] initWithCity:city temperature:currentTemp minTemp:minTemp maxTemp:maxTemp dateString:dayString iconURL:formattedUrl humidity:humdity wind:wind feelsLike:feelsLike andPreciptation:precipitation];
+        NSNumber *precipitation = todaysForecast[@"hour"][0][@"precip_in"];
+        NSString *precipString = [STWeather stringFromNumber:precipitation];
+        
+        STWeather *today = [[STWeather alloc] initWithCity:city temperature:currentTempStr minTemp:minTempString maxTemp:maxTempString dateString:dayString iconURL:formattedUrl humidity:humdityString wind:windString feelsLike:feelsLikeString andPreciptation:precipString];
         
         [weatherDataArray addObject:today];
         
@@ -78,8 +88,13 @@
             NSDictionary *dayInfo = weeklyForecastArray[i];
             
             NSNumber *averageTemp = dayInfo[@"day"][@"avgtemp_f"];
+            NSString *averageTempStr = [STWeather stringFromNumber:averageTemp];
+            
             NSNumber *minTemp = dayInfo[@"day"][@"mintemp_f"];
+            NSString *minTempStr = [STWeather stringFromNumber:minTemp];
+            
             NSNumber *maxTemp = dayInfo[@"day"][@"maxtemp_f"];
+            NSString *maxTempStr = [STWeather stringFromNumber:maxTemp];
             
             NSString *dateString = dayInfo[@"date"];
             NSString *dayString = [STWeather dayFromDateString:dateString];
@@ -88,12 +103,18 @@
             NSString *formattedUrl = [NSString stringWithFormat:@"https:%@",iconUrl];
             
             NSNumber *humdity = todaysForecast[@"hour"][0][@"humidity"];
+            NSString *humdityStr = [STWeather stringFromNumber:humdity];
+            
             NSNumber *wind = todaysForecast[@"hour"][0][@"wind_mph"];
+            NSString *windStr = [STWeather stringFromNumber:wind];
             
             NSNumber *feelsLike = todaysForecast[@"hour"][0][@"feelslike_f"];
-            NSNumber *precipitation = todaysForecast[@"hour"][0][@"precip_in"];
+            NSString *feelsLikeStr =[STWeather stringFromNumber:feelsLike];
             
-            STWeather *currentDay = [[STWeather alloc] initWithCity:city temperature:averageTemp minTemp:minTemp maxTemp:maxTemp dateString:dayString iconURL:formattedUrl humidity:humdity wind:wind feelsLike:feelsLike andPreciptation:precipitation];
+            NSNumber *precipitation = todaysForecast[@"hour"][0][@"precip_in"];
+            NSString *precipStr = [STWeather stringFromNumber:precipitation];
+            
+            STWeather *currentDay = [[STWeather alloc] initWithCity:city temperature:averageTempStr minTemp:minTempStr maxTemp:maxTempStr dateString:dayString iconURL:formattedUrl humidity:humdityStr wind:windStr feelsLike:feelsLikeStr andPreciptation:precipStr];
             
             [weatherDataArray addObject:currentDay];
         }
@@ -111,6 +132,17 @@
     NSString *day = [formatter stringFromDate:date];
     
     return day;
+}
+
++ (NSString *)stringFromNumber:(NSNumber *)number {
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    formatter.maximumFractionDigits = 2;
+    
+    NSString *numString = [formatter stringFromNumber:number];
+    
+    return numString;
 }
 
 @end

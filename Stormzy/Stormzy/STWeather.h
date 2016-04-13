@@ -12,15 +12,15 @@
 @interface STWeather : NSObject
 
 @property (nonatomic) NSString *city;
-@property (nonatomic) NSNumber *temperature;
-@property (nonatomic) NSNumber *minTemp;
-@property (nonatomic) NSNumber *maxTemp;
+@property (nonatomic) NSString *temperature;
+@property (nonatomic) NSString *minTemp;
+@property (nonatomic) NSString *maxTemp;
 @property (nonatomic) NSString *dateString;
 @property (nonatomic) NSString *iconURL;
-@property (nonatomic) NSNumber *humdity;
-@property (nonatomic) NSNumber *wind;
-@property (nonatomic) NSNumber *feelsLike;
-@property (nonatomic) NSNumber *precipitation;
+@property (nonatomic) NSString *humdity;
+@property (nonatomic) NSString *wind;
+@property (nonatomic) NSString *feelsLike;
+@property (nonatomic) NSString *precipitation;
 
 + (NSArray<STWeather *> *)weatherDataFromJSON:(NSDictionary *)json;
 

@@ -10,5 +10,11 @@
 
 @interface STCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hiLoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *conditionsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *conditionImageView;
+@property (weak, nonatomic) IBOutlet UILabel *degreeSymbolLabel;
+
+- (void)setTextColor;
 
 @end
