@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		18F6E0B81CBD62B6006A8733 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0B71CBD62B6006A8733 /* main.m */; };
 		18F6E0BB1CBD62B6006A8733 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0BA1CBD62B6006A8733 /* AppDelegate.m */; };
-		18F6E0BE1CBD62B6006A8733 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0BD1CBD62B6006A8733 /* ViewController.m */; };
 		18F6E0C11CBD62B7006A8733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F6E0BF1CBD62B7006A8733 /* Main.storyboard */; };
 		18F6E0C41CBD62B8006A8733 /* Stormzy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0C21CBD62B8006A8733 /* Stormzy.xcdatamodeld */; };
 		18F6E0C61CBD62B8006A8733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F6E0C51CBD62B8006A8733 /* Assets.xcassets */; };
 		18F6E0C91CBD62B8006A8733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F6E0C71CBD62B8006A8733 /* LaunchScreen.storyboard */; };
 		18F6E0D41CBD62BE006A8733 /* StormzyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0D31CBD62BE006A8733 /* StormzyTests.m */; };
 		18F6E0DF1CBD62BF006A8733 /* StormzyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0DE1CBD62BF006A8733 /* StormzyUITests.m */; };
+		18F6E0EE1CBD747D006A8733 /* STAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0ED1CBD747D006A8733 /* STAPIManager.m */; };
+		18F6E0F11CBD7822006A8733 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0F01CBD7822006A8733 /* STViewController.m */; };
+		18F6E0FB1CBD92B9006A8733 /* STCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0F91CBD92B9006A8733 /* STCollectionViewCell.m */; };
+		18F6E0FC1CBD92B9006A8733 /* STCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F6E0FA1CBD92B9006A8733 /* STCollectionViewCell.xib */; };
+		18F6E0FF1CBD97B5006A8733 /* STCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0FE1CBD97B5006A8733 /* STCollectionViewFlowLayout.m */; };
+		18F6E1021CBDF1B2006A8733 /* STWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E1011CBDF1B1006A8733 /* STWeather.m */; };
 		ABF403652825DBE9DB7F911D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B23A118B8535D4803D20ACC8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +46,6 @@
 		18F6E0B71CBD62B6006A8733 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18F6E0B91CBD62B6006A8733 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18F6E0BA1CBD62B6006A8733 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18F6E0BC1CBD62B6006A8733 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18F6E0BD1CBD62B6006A8733 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18F6E0C01CBD62B7006A8733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18F6E0C31CBD62B8006A8733 /* Stormzy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stormzy.xcdatamodel; sourceTree = "<group>"; };
 		18F6E0C51CBD62B8006A8733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +57,17 @@
 		18F6E0DA1CBD62BF006A8733 /* StormzyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormzyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6E0DE1CBD62BF006A8733 /* StormzyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StormzyUITests.m; sourceTree = "<group>"; };
 		18F6E0E01CBD62BF006A8733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18F6E0EC1CBD747C006A8733 /* STAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPIManager.h; sourceTree = "<group>"; };
+		18F6E0ED1CBD747D006A8733 /* STAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPIManager.m; sourceTree = "<group>"; };
+		18F6E0EF1CBD7822006A8733 /* STViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
+		18F6E0F01CBD7822006A8733 /* STViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
+		18F6E0F81CBD92B9006A8733 /* STCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCollectionViewCell.h; sourceTree = "<group>"; };
+		18F6E0F91CBD92B9006A8733 /* STCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCollectionViewCell.m; sourceTree = "<group>"; };
+		18F6E0FA1CBD92B9006A8733 /* STCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STCollectionViewCell.xib; sourceTree = "<group>"; };
+		18F6E0FD1CBD97B5006A8733 /* STCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		18F6E0FE1CBD97B5006A8733 /* STCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		18F6E1001CBDF1B1006A8733 /* STWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STWeather.h; sourceTree = "<group>"; };
+		18F6E1011CBDF1B1006A8733 /* STWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWeather.m; sourceTree = "<group>"; };
 		672346EF9452A0FE931077AF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B23A118B8535D4803D20ACC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED856A14C92D303E2A7614C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,8 +126,17 @@
 			children = (
 				18F6E0B91CBD62B6006A8733 /* AppDelegate.h */,
 				18F6E0BA1CBD62B6006A8733 /* AppDelegate.m */,
-				18F6E0BC1CBD62B6006A8733 /* ViewController.h */,
-				18F6E0BD1CBD62B6006A8733 /* ViewController.m */,
+				18F6E1001CBDF1B1006A8733 /* STWeather.h */,
+				18F6E1011CBDF1B1006A8733 /* STWeather.m */,
+				18F6E0EF1CBD7822006A8733 /* STViewController.h */,
+				18F6E0F01CBD7822006A8733 /* STViewController.m */,
+				18F6E0FD1CBD97B5006A8733 /* STCollectionViewFlowLayout.h */,
+				18F6E0FE1CBD97B5006A8733 /* STCollectionViewFlowLayout.m */,
+				18F6E0F81CBD92B9006A8733 /* STCollectionViewCell.h */,
+				18F6E0F91CBD92B9006A8733 /* STCollectionViewCell.m */,
+				18F6E0FA1CBD92B9006A8733 /* STCollectionViewCell.xib */,
+				18F6E0EC1CBD747C006A8733 /* STAPIManager.h */,
+				18F6E0ED1CBD747D006A8733 /* STAPIManager.m */,
 				18F6E0BF1CBD62B7006A8733 /* Main.storyboard */,
 				18F6E0C51CBD62B8006A8733 /* Assets.xcassets */,
 				18F6E0C71CBD62B8006A8733 /* LaunchScreen.storyboard */,
@@ -276,6 +299,7 @@
 				18F6E0C91CBD62B8006A8733 /* LaunchScreen.storyboard in Resources */,
 				18F6E0C61CBD62B8006A8733 /* Assets.xcassets in Resources */,
 				18F6E0C11CBD62B7006A8733 /* Main.storyboard in Resources */,
+				18F6E0FC1CBD92B9006A8733 /* STCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +373,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F6E0C41CBD62B8006A8733 /* Stormzy.xcdatamodeld in Sources */,
-				18F6E0BE1CBD62B6006A8733 /* ViewController.m in Sources */,
+				18F6E0EE1CBD747D006A8733 /* STAPIManager.m in Sources */,
+				18F6E0FF1CBD97B5006A8733 /* STCollectionViewFlowLayout.m in Sources */,
+				18F6E0F11CBD7822006A8733 /* STViewController.m in Sources */,
+				18F6E0FB1CBD92B9006A8733 /* STCollectionViewCell.m in Sources */,
+				18F6E1021CBDF1B2006A8733 /* STWeather.m in Sources */,
 				18F6E0BB1CBD62B6006A8733 /* AppDelegate.m in Sources */,
 				18F6E0B81CBD62B6006A8733 /* main.m in Sources */,
 			);

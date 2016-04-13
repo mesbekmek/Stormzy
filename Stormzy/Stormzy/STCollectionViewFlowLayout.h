@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  STCollectionViewFlowLayout.h
 //  Stormzy
 //
 //  Created by Mesfin Bekele Mekonnen on 4/12/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface STCollectionViewFlowLayout : UICollectionViewFlowLayout
 
 @end
-
