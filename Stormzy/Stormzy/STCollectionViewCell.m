@@ -25,6 +25,7 @@
     self.degreeSymbolLabel.textColor = [UIColor whiteColor];
     self.conditionsLabel.textColor = [UIColor whiteColor];
     self.dayLabel.textColor = [UIColor whiteColor];
+    self.degreeSymbol2.textColor = [UIColor whiteColor];
 }
 
 

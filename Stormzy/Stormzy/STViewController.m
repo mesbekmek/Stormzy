@@ -11,6 +11,7 @@
 #import "STCollectionViewCell.h"
 #import "STCollectionViewFlowLayout.h"
 #import "STWeather.h"
+#import "STDetailViewController.h"
 @import CoreLocation;
 
 @interface STViewController () <
@@ -171,6 +172,17 @@ CLLocationManagerDelegate
     }];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    STWeather *weather = self.weatherData[indexPath.row];
+    
+    STDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"STDetailViewControllerID"];
+    
+    detailVC.weatherData = weather;
+    
+    [self presentViewController:detailVC animated:YES completion:nil];
 }
 
 #pragma mark - collection View Layout setup

@@ -22,6 +22,7 @@
 		18F6E0FF1CBD97B5006A8733 /* STCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E0FE1CBD97B5006A8733 /* STCollectionViewFlowLayout.m */; };
 		18F6E1021CBDF1B2006A8733 /* STWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E1011CBDF1B1006A8733 /* STWeather.m */; };
 		18F6E10C1CBF2FBE006A8733 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F6E10B1CBF2FBE006A8733 /* CoreLocation.framework */; };
+		18F6E10F1CBF4A84006A8733 /* STDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E10E1CBF4A84006A8733 /* STDetailViewController.m */; };
 		ABF403652825DBE9DB7F911D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B23A118B8535D4803D20ACC8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		18F6E1011CBDF1B1006A8733 /* STWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWeather.m; sourceTree = "<group>"; };
 		18F6E1061CBF2EA7006A8733 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		18F6E10B1CBF2FBE006A8733 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		18F6E10D1CBF4A84006A8733 /* STDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDetailViewController.h; sourceTree = "<group>"; };
+		18F6E10E1CBF4A84006A8733 /* STDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDetailViewController.m; sourceTree = "<group>"; };
 		672346EF9452A0FE931077AF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B23A118B8535D4803D20ACC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED856A14C92D303E2A7614C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				18F6E1011CBDF1B1006A8733 /* STWeather.m */,
 				18F6E0EF1CBD7822006A8733 /* STViewController.h */,
 				18F6E0F01CBD7822006A8733 /* STViewController.m */,
+				18F6E10D1CBF4A84006A8733 /* STDetailViewController.h */,
+				18F6E10E1CBF4A84006A8733 /* STDetailViewController.m */,
 				18F6E0FD1CBD97B5006A8733 /* STCollectionViewFlowLayout.h */,
 				18F6E0FE1CBD97B5006A8733 /* STCollectionViewFlowLayout.m */,
 				18F6E0F81CBD92B9006A8733 /* STCollectionViewCell.h */,
@@ -380,6 +385,7 @@
 			files = (
 				18F6E0C41CBD62B8006A8733 /* Stormzy.xcdatamodeld in Sources */,
 				18F6E0EE1CBD747D006A8733 /* STAPIManager.m in Sources */,
+				18F6E10F1CBF4A84006A8733 /* STDetailViewController.m in Sources */,
 				18F6E0FF1CBD97B5006A8733 /* STCollectionViewFlowLayout.m in Sources */,
 				18F6E0F11CBD7822006A8733 /* STViewController.m in Sources */,
 				18F6E0FB1CBD92B9006A8733 /* STCollectionViewCell.m in Sources */,
