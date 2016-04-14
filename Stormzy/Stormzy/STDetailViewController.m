@@ -29,9 +29,9 @@
     
     [super viewDidLoad];
     
-    self.windLabel.text = self.weatherData.wind;
-    self.humidityLabel.text = self.weatherData.humdity;
-    self.precipitationLabel.text = self.weatherData.precipitation;
+    self.windLabel.text = [NSString stringWithFormat:@"%@ mph",self.weatherData.wind];
+    self.humidityLabel.text = [NSString stringWithFormat:@"%@ %%",self.weatherData.humdity];
+    self.precipitationLabel.text = [NSString stringWithFormat:@"%@ inches",self.weatherData.precipitation];
     self.feelingLabel.text = self.weatherData.feelsLike;
     self.conditionLabel.text = self.weatherData.condition;
     
