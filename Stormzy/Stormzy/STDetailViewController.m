@@ -23,14 +23,42 @@
 
 @implementation STDetailViewController
 
+#pragma mark - LifeCycle method
+
 -(void)viewDidLoad {
     
     [super viewDidLoad];
     
+    self.windLabel.text = self.weatherData.wind;
     self.humidityLabel.text = self.weatherData.humdity;
     self.precipitationLabel.text = self.weatherData.precipitation;
     self.feelingLabel.text = self.weatherData.feelsLike;
     self.conditionLabel.text = self.weatherData.condition;
+    
+    [self.weatherData getIconForWeatherData:^(UIImage *image) {
+        
+        self.imageView.image = image;
+        [self blurImage];
+        
+    }];
 }
+
+#pragma mark - Navigation method
+
+- (IBAction)doneButtonTapped:(UIButton *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Blur Effect 
+
+- (void)blurImage {
+    
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
+    effectView.frame = self.view.frame;
+    [self.imageView addSubview:effectView];
+}
+
 
 @end
