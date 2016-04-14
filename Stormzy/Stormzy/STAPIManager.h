@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreLocation;
 
 @interface STAPIManager : NSObject
 
 + (void)getJSONFromAPI:(void(^)(NSDictionary *dict))completion;
+
++ (void)getJSONFromAPIForLocation:(CLLocation *)location
+                            block:(void (^)(NSDictionary *dict))completion;
 
 @end

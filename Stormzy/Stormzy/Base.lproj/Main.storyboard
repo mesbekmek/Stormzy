@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zk8-7d-h5p">
-                                <rect key="frame" x="0.0" y="70" width="600" height="480"/>
+                                <rect key="frame" x="0.0" y="75" width="600" height="500"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ei7-9L-ilx">
                                     <size key="itemSize" width="301" height="293"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,7 +31,7 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpk-2v-wQp">
-                                <rect key="frame" x="300" y="45" width="0.0" height="0.0"/>
+                                <rect key="frame" x="300" y="40" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -40,15 +40,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="o0L-XB-hD5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="5I2-rv-ytZ"/>
-                            <constraint firstItem="Rpk-2v-wQp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="I6H-r3-hOf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zk8-7d-h5p" secondAttribute="bottom" constant="50" id="Mdr-06-yHk"/>
+                            <constraint firstItem="Rpk-2v-wQp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="I6H-r3-hOf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zk8-7d-h5p" secondAttribute="bottom" constant="25" id="Mdr-06-yHk"/>
                             <constraint firstAttribute="trailing" secondItem="o0L-XB-hD5" secondAttribute="trailing" id="POZ-lC-Eae"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="o0L-XB-hD5" secondAttribute="bottom" id="VqB-ph-1Oj"/>
                             <constraint firstItem="o0L-XB-hD5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wio-Lo-c4k"/>
                             <constraint firstAttribute="trailing" secondItem="Zk8-7d-h5p" secondAttribute="trailing" id="XzW-hP-dBb"/>
                             <constraint firstItem="Rpk-2v-wQp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aEg-Nz-6Ok"/>
                             <constraint firstItem="Zk8-7d-h5p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="blZ-Qt-oDY"/>
-                            <constraint firstItem="Zk8-7d-h5p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="e0J-rl-PFx"/>
+                            <constraint firstItem="Zk8-7d-h5p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="e0J-rl-PFx"/>
                             <constraint firstItem="o0L-XB-hD5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eVS-Xs-V7c"/>
                         </constraints>
                         <variation key="default">

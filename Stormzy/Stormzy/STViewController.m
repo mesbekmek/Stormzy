@@ -11,8 +11,14 @@
 #import "STCollectionViewCell.h"
 #import "STCollectionViewFlowLayout.h"
 #import "STWeather.h"
+@import CoreLocation;
 
-@interface STViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface STViewController () <
+UICollectionViewDelegateFlowLayout,
+UICollectionViewDelegate,
+UICollectionViewDataSource,
+CLLocationManagerDelegate
+>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSMutableArray<STWeather *> *weatherData;
@@ -23,14 +29,17 @@
 
 @end
 
-@implementation STViewController
+@implementation STViewController {
+    CLLocationManager *locationManager;
+}
 
 #pragma mark - Life Cycle Methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupWeatherData];
+    //[self setupWeatherData];
+    [self startStandardUpdates];
     [self setupCollectionView];
     self.backgroundImageView.image = [UIImage imageNamed:@"bg"];
 }
@@ -48,6 +57,61 @@
         self.weatherData = [NSMutableArray arrayWithArray:[STWeather weatherDataFromJSON:dict]];
         [self.collectionView reloadData];
     }];
+}
+
+#pragma mark - Location methods
+
+- (void)startStandardUpdates
+{
+    if (!locationManager) {
+        locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    
+    // Set a movement threshold for new events.
+    locationManager.distanceFilter = 500; // meters
+    
+    
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
+    [locationManager startUpdatingLocation];
+}
+
+#pragma mark - CLLocation Delegate Methods
+
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
+    
+    CLLocation* location = [locations lastObject];
+    NSDate* eventDate = location.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    
+    if (fabs(howRecent) < 15.0) {
+        
+        [STAPIManager getJSONFromAPIForLocation:location block:^(NSDictionary *dict) {
+            self.weatherData = [NSMutableArray arrayWithArray:[STWeather weatherDataFromJSON:dict]];
+            [self.collectionView reloadData];
+        }];
+        
+        [locationManager stopUpdatingLocation];
+        [locationManager stopMonitoringSignificantLocationChanges];
+        
+        if(locationManager!=nil){
+            locationManager.delegate= nil;
+            locationManager= nil;
+        }
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    
+    if (status == kCLAuthorizationStatusNotDetermined ) {
+        [locationManager requestWhenInUseAuthorization];
+    }
 }
 
 
