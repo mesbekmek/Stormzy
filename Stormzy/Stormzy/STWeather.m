@@ -8,6 +8,7 @@
 
 #import "STWeather.h"
 
+
 @implementation STWeather
 
 
@@ -20,6 +21,7 @@
                     humidity:(NSString *)humidity
                         wind:(NSString *)wind
                    feelsLike:(NSString *)feelsLike
+                   condition:(NSString *)condition
              andPreciptation:(NSString *)precip {
     
     if (self = [super init]) {
@@ -32,6 +34,7 @@
         self.humdity = humidity;
         self.wind = wind;
         self.feelsLike = feelsLike;
+        self.condition = condition;
         self.precipitation = precip;
     }
     return self;
@@ -75,10 +78,12 @@
         NSNumber *feelsLike = todaysForecast[@"hour"][0][@"feelslike_f"];
         NSString *feelsLikeString = [STWeather stringFromNumber:feelsLike];
         
+        NSString *condition = todaysForecast[@"day"][@"condition"][@"text"];
+        
         NSNumber *precipitation = todaysForecast[@"hour"][0][@"precip_in"];
         NSString *precipString = [STWeather stringFromNumber:precipitation];
         
-        STWeather *today = [[STWeather alloc] initWithCity:city temperature:currentTempStr minTemp:minTempString maxTemp:maxTempString dateString:dayString iconURL:formattedUrl humidity:humdityString wind:windString feelsLike:feelsLikeString andPreciptation:precipString];
+        STWeather *today = [[STWeather alloc] initWithCity:city temperature:currentTempStr minTemp:minTempString maxTemp:maxTempString dateString:dayString iconURL:formattedUrl humidity:humdityString wind:windString feelsLike:feelsLikeString condition:condition andPreciptation:precipString];
         
         [weatherDataArray addObject:today];
         
@@ -102,19 +107,21 @@
             NSString *iconUrl = dayInfo[@"day"][@"condition"][@"icon"];
             NSString *formattedUrl = [NSString stringWithFormat:@"https:%@",iconUrl];
             
-            NSNumber *humdity = todaysForecast[@"hour"][0][@"humidity"];
+            NSNumber *humdity = dayInfo[@"hour"][0][@"humidity"];
             NSString *humdityStr = [STWeather stringFromNumber:humdity];
             
-            NSNumber *wind = todaysForecast[@"hour"][0][@"wind_mph"];
+            NSNumber *wind = dayInfo[@"hour"][0][@"wind_mph"];
             NSString *windStr = [STWeather stringFromNumber:wind];
             
-            NSNumber *feelsLike = todaysForecast[@"hour"][0][@"feelslike_f"];
+            NSNumber *feelsLike = dayInfo[@"hour"][0][@"feelslike_f"];
             NSString *feelsLikeStr =[STWeather stringFromNumber:feelsLike];
             
-            NSNumber *precipitation = todaysForecast[@"hour"][0][@"precip_in"];
+            NSString *condition = dayInfo[@"day"][@"condition"][@"text"];
+            
+            NSNumber *precipitation = dayInfo[@"hour"][0][@"precip_in"];
             NSString *precipStr = [STWeather stringFromNumber:precipitation];
             
-            STWeather *currentDay = [[STWeather alloc] initWithCity:city temperature:averageTempStr minTemp:minTempStr maxTemp:maxTempStr dateString:dayString iconURL:formattedUrl humidity:humdityStr wind:windStr feelsLike:feelsLikeStr andPreciptation:precipStr];
+            STWeather *currentDay = [[STWeather alloc] initWithCity:city temperature:averageTempStr minTemp:minTempStr maxTemp:maxTempStr dateString:dayString iconURL:formattedUrl humidity:humdityStr wind:windStr feelsLike:feelsLikeStr condition:condition andPreciptation:precipStr];
             
             [weatherDataArray addObject:currentDay];
         }
@@ -127,7 +134,10 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE"];
-    NSDate *date = [formatter dateFromString:dateString];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [dateFormat dateFromString:dateString];
     
     NSString *day = [formatter stringFromDate:date];
     
@@ -143,6 +153,26 @@
     NSString *numString = [formatter stringFromNumber:number];
     
     return numString;
+}
+
+- (void)getIconForWeatherData:(void(^)(UIImage *image))completion{
+    
+    if (!self.iconURL) {
+        return;
+    }
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+      
+        NSURL *url = [NSURL URLWithString:self.iconURL];
+        NSData *imageData = [NSData dataWithContentsOfURL:url];
+        
+        UIImage *img = [UIImage imageWithData:imageData];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(img);
+        });
+        
+    });
 }
 
 @end

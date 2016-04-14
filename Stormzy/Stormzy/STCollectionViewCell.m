@@ -23,6 +23,8 @@
     self.hiLoLabel.textColor = [UIColor whiteColor];
     self.conditionsLabel.textColor = [UIColor whiteColor];
     self.degreeSymbolLabel.textColor = [UIColor whiteColor];
+    self.conditionsLabel.textColor = [UIColor whiteColor];
+    self.dayLabel.textColor = [UIColor whiteColor];
 }
 
 

@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *conditionsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *conditionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *degreeSymbolLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 
 - (void)setTextColor;
 

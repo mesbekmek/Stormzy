@@ -9,7 +9,7 @@
 #import "STAPIManager.h"
 #import <AFNetworking/AFNetworking.h>
 
-static NSString * const weatherEndpoint = @"https://api.apixu.com/v1/forecast.json?key=be4be9a1f0404320a9e161640161304&q=Amazon&days=7";
+static NSString * const weatherEndpoint = @"https://api.apixu.com/v1/forecast.json?key=be4be9a1f0404320a9e161640161304&q=Amazon&days=10";
 
 static NSString * const forecastEndpoint = @"https://api.forecast.io/forecast/95ac0e76481513d58b808d31fba3a227/-40.7,70.38";
 

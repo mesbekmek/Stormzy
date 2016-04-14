@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface STWeather : NSObject
@@ -21,7 +22,9 @@
 @property (nonatomic) NSString *wind;
 @property (nonatomic) NSString *feelsLike;
 @property (nonatomic) NSString *precipitation;
+@property (nonatomic) NSString *condition;
 
 + (NSArray<STWeather *> *)weatherDataFromJSON:(NSDictionary *)json;
+- (void)getIconForWeatherData:(void(^)(UIImage *image))completion;
 
 @end

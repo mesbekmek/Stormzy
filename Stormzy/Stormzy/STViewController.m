@@ -95,12 +95,16 @@
     //Sets label attributes to white color
     [cell setTextColor];
     
-    STWeather *weatherData =  self.weatherData[indexPath.row];
+    STWeather *weatherData = self.weatherData[indexPath.row];
+    
     self.cityLabel.text = weatherData.city;
     cell.temperatureLabel.text = weatherData.temperature;
-    
+    cell.conditionsLabel.text = weatherData.condition;
     cell.hiLoLabel.text = [NSString stringWithFormat:@"%@/%@",weatherData.minTemp, weatherData.maxTemp];
-    
+    cell.dayLabel.text = weatherData.dateString;
+    [weatherData getIconForWeatherData:^(UIImage *image) {
+        cell.conditionImageView.image = image;
+    }];
     
     return cell;
 }
